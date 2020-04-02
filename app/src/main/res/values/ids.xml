@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="imageButtonBack" type="id" />
+    <item name="floatingActionButtonFav" type="id" />
+    <item name="image_avatar" type="id" />
+    <item name="nameProfil" type="id" />
+    <item name="activity_name_text" type="id" />
+    <item name="activity_phone_text" type="id" />
+    <item name="activity_mail_text" type="id" />
+</resources>
