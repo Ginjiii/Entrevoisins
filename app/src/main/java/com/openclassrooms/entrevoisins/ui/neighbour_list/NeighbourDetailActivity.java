@@ -23,7 +23,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     ImageButton mButtonBack;
 
     @BindView(R.id.floatingActionButtonFav)
-    FloatingActionButton mImageButtonFav;
+    ImageButton mImageButtonFav;
 
     @BindView(R.id.image_avatar)
     ImageView mImageViewAvatar;
