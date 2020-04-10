@@ -11,6 +11,7 @@ import org.junit.runners.JUnit4;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 
@@ -29,15 +30,50 @@ public class NeighbourServiceTest {
 
     @Test
     public void getNeighboursWithSuccess() {
-        List<Neighbour> neighbours = service.getNeighbours();
+        List<Neighbour> neighbours = service.getNeighbour();
         List<Neighbour> expectedNeighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
         assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
     }
 
     @Test
     public void deleteNeighbourWithSuccess() {
-        Neighbour neighbourToDelete = service.getNeighbours().get(0);
+        Neighbour neighbourToDelete = service.getNeighbour().get(0);
         service.deleteNeighbour(neighbourToDelete);
-        assertFalse(service.getNeighbours().contains(neighbourToDelete));
+        assertFalse(service.getNeighbour().contains(neighbourToDelete));
+        Neighbour neighbour = new Neighbour(1, "Caroline", "http://i.pravatar.cc/150?u=a042581f4e29026704d");
+        service.addFavorite(neighbour);
+        Neighbour neighbourFavToDelete = service.getFavorite().get(0);
+        service.deleteFavorite(neighbourFavToDelete);
+        assertFalse(service.getFavorite().contains(neighbourFavToDelete));
+
+    }
+
+    @Test
+    public void getNeighbourFavorite (){
+        List<Neighbour> mFavoriteNeighbour = service.getNeighbour();
+        List<Neighbour> expectedmFavoriteNeighbour = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
+        assertThat(mFavoriteNeighbour, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedmFavoriteNeighbour.toArray()));
+
+
+
+    }
+
+    @Test
+    public void addNeighbourFavorite (){
+        Neighbour neighbour = new Neighbour(1, "Caroline", "http://i.pravatar.cc/150?u=a042581f4e29026704d");
+        service.addFavorite(neighbour);
+        assertEquals(1, service.getFavorite().size());
+
+
+
+    }
+
+    @Test
+    public void deleteNeighbourFavorite (){
+        Neighbour neighbour = new Neighbour(1, "Caroline", "http://i.pravatar.cc/150?u=a042581f4e29026704d");
+        service.addFavorite(neighbour);
+        Neighbour neighbourFavToDelete = service.getFavorite().get(0);
+        service.deleteFavorite(neighbourFavToDelete);
+        assertFalse(service.getFavorite().contains(neighbourFavToDelete));
     }
 }

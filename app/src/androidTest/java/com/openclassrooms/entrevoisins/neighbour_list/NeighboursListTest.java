@@ -67,7 +67,7 @@ public class NeighboursListTest {
     }
 
     /**
-     * When we delete an item, the item is no more shown
+     * When we delete an item, the item is no more shown even for favorite list
      */
     @Test
     public void myNeighboursList_deleteAction_shouldRemoveItem() {
@@ -86,9 +86,9 @@ public class NeighboursListTest {
         onView(withId(R.id.floatingActionButtonFav)).perform(click());
         // go back
         onView(withId(R.id.imageButtonBack)).perform(click());
-        // select favorites list
+        // select favorite list
         onView(withId(R.id.container)).perform(scrollRight());
-        // check the list of favorites contains one neighbour
+        // check the list of favorite contains one neighbour
         onView(withId(R.id.favorite_list_neighbour)).check(matches(isDisplayed()));
         onView(withId(R.id.favorite_list_neighbour)).check(withItemCount(1));
         // delete this neighbour
@@ -99,7 +99,7 @@ public class NeighboursListTest {
 
     }
     @Test
-    public void clickItem_showDetailNeighbour () {
+    public void clickItem_showNeighbourDetail () {
         // Select one neighbour
         onView(withId(R.id.list_neighbour)).perform(RecyclerViewActions.actionOnItemAtPosition(POSITION_ITEM,click()));
         // Show neighbour detail
@@ -117,34 +117,34 @@ public class NeighboursListTest {
 
     }
     @Test
-    public void favoriteTab_show_only_favoritesList() {
+    public void favoriteTab_show_only_favoriteList() {
         // show detail neighbour
         onView(withId(R.id.list_neighbour)).perform(RecyclerViewActions.actionOnItemAtPosition(POSITION_ITEM,click()));
         onView(withId(R.id.activity_neighbour_detail)).check(matches(isDisplayed()));
-        // click on fav button
+        // click on favorite button
         onView(withId(R.id.floatingActionButtonFav)).perform(click());
         // go back
         onView(withId(R.id.imageButtonBack)).perform(click());
-        // select favorites list
+        // select favorite list
         onView(withId(R.id.container)).perform(scrollRight());
-        // check the list of favorites contains one neighbour
+        // check the list of favorite contains one neighbour
         onView(withId(R.id.favorite_list_neighbour)).check(matches(isDisplayed()));
         onView(withId(R.id.favorite_list_neighbour)).check(withItemCount(1));
 
 
     }
     @Test
-    public void myFavNeighboursList_deleteAction_shouldRemoveItem() {
+    public void myFavoriteNeighboursList_deleteAction_shouldRemoveItem() {
         // show detail neighbour
         onView(withId(R.id.list_neighbour)).perform(RecyclerViewActions.actionOnItemAtPosition(POSITION_ITEM,click()));
         onView(withId(R.id.activity_neighbour_detail)).check(matches(isDisplayed()));
-        // click on fav button
+        // click on favorite button
         onView(withId(R.id.floatingActionButtonFav)).perform(click());
         // go back
         onView(withId(R.id.imageButtonBack)).perform(click());
-        // select favorites list
+        // select favorite list
         onView(withId(R.id.container)).perform(scrollRight());
-        // check the list of favorites contains one neighbour
+        // check the list of favorite contains one neighbour
         onView(withId(R.id.favorite_list_neighbour)).check(matches(isDisplayed()));
         onView(withId(R.id.favorite_list_neighbour)).check(withItemCount(1));
         // delete this neighbour

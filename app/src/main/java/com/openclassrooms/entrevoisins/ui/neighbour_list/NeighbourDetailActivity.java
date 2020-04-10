@@ -1,8 +1,8 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,7 +23,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     ImageButton mButtonBack;
 
     @BindView(R.id.floatingActionButtonFav)
-    ImageButton mImageButtonFav;
+    FloatingActionButton mImageButtonFav;
 
     @BindView(R.id.image_avatar)
     ImageView mImageViewAvatar;
