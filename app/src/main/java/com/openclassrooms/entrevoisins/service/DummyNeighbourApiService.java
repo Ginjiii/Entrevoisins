@@ -10,8 +10,8 @@ import java.util.List;
  */
 public class DummyNeighbourApiService implements  NeighbourApiService {
 
-    private List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
-    private List<Neighbour> favorite = new ArrayList<>();
+    private List<Neighbour> neighbourList = DummyNeighbourGenerator.generateNeighbours();
+    private List<Neighbour> favoriteList = new ArrayList<>();
 
 
     /**
@@ -20,7 +20,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     @Override
     public List<Neighbour> getNeighbour() {
 
-        return neighbours;
+        return neighbourList;
     }
 
     /**
@@ -28,7 +28,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
      */
     @Override
     public void deleteNeighbour(Neighbour neighbour) {
-        neighbours.remove(neighbour);
+        neighbourList.remove(neighbour);
     }
 
     /**
@@ -37,7 +37,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
      */
     @Override
     public void createNeighbour(Neighbour neighbour) {
-        neighbours.add(neighbour);
+        neighbourList.add(neighbour);
     }
 
     /**
@@ -48,26 +48,26 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     @Override
     public List<Neighbour> getFavorite() {
 
-        return favorite;
+        return favoriteList;
     }
 
     @Override
     public void addFavorite(Neighbour neighbour) {
 
-        if (favorite.contains(neighbour)) {
-            favorite.add(neighbour);
+        if (!favoriteList.contains(neighbour)) {
+            favoriteList.add(neighbour);
         }
     }
         /**
-         * delete neighbours from favorites list
+         * delete neighbour from favorite list
          * @param neighbour
          */
         @Override
         public void deleteFavorite(Neighbour neighbour) {
 
-            if(favorite.contains(neighbour)){
+            if(favoriteList.contains(neighbour)){
 
-                favorite.remove(neighbour);
+                favoriteList.remove(neighbour);
             }
     }
 }

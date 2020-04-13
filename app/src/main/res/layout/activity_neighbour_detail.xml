@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,47 +12,72 @@
     tools:context=".ui.neighbour_list.NeighbourDetailActivity">
 
 
-    <ImageView
-        android:id="@+id/image_avatar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="350dp"
-        android:scaleType="centerCrop"
-        android:contentDescription="@string/profil"
-        app:srcCompat="@drawable/ic_launcher_background" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="275dp"
+        android:backgroundTint="#FFFFFF"
+        android:clickable="true"
+        android:tint="#FFEB3B"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/activity_neighbour_detail"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_star_border_black_24dp" />
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/image_card"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_avatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/profil"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_launcher_background" />
 
     <ImageButton
         android:id="@+id/imageButtonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/buttonback"
         android:padding="20dp"
-        app:srcCompat="@drawable/ic_arrow_back_black_24dp"
-        android:contentDescription="@string/buttonback" />
+        app:layout_constraintStart_toStartOf="@+id/image_avatar"
+        app:layout_constraintTop_toTopOf="@+id/image_avatar"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
     <TextView
-        android:id="@+id/nameProfil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
-        android:textColor="@color/cardview_light_background"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteX="-14dp"
-        tools:layout_editor_absoluteY="227dp"/>
+            android:id="@+id/nameProfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="24dp"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintBottom_toBottomOf="@+id/image_avatar"
+            android:textSize="40sp"/>
+</android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/activity_neighbour_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="320dp"
         android:layout_marginEnd="8dp"
         android:minHeight="150dp"
-        app:layout_constraintTop_toBottomOf="@+id/image_avatar"
-        app:layout_constraintVertical_bias="0.18">
+        app:layout_constraintTop_toBottomOf="@+id/image_card"
+        tools:layout_editor_absoluteX="8dp">
 
         <TextView
             android:id="@+id/activity_name_text"
@@ -68,8 +93,8 @@
             android:layout_height="16dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="46dp"
-            app:srcCompat="@drawable/ic_location_on_black_24dp"
-            android:contentDescription="Location" />
+            android:contentDescription="Location"
+            app:srcCompat="@drawable/ic_location_on_black_24dp" />
 
         <TextView
             android:id="@+id/activity_adresse_text"
@@ -86,8 +111,8 @@
             android:layout_height="16dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="84dp"
-            app:srcCompat="@drawable/ic_phone_black_24dp"
-            android:contentDescription="Phone" />
+            android:contentDescription="Phone"
+            app:srcCompat="@drawable/ic_phone_black_24dp" />
 
         <TextView
             android:id="@+id/activity_phone_text"
@@ -104,8 +129,8 @@
             android:layout_height="16dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="120dp"
-            app:srcCompat="@drawable/ic_language_black_24dp"
-            android:contentDescription="Mail" />
+            android:contentDescription="Mail"
+            app:srcCompat="@drawable/ic_language_black_24dp" />
 
         <TextView
             android:id="@+id/activity_mail_text"
@@ -123,9 +148,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="490dp"
         android:layout_marginEnd="8dp"
-        android:minHeight="150dp">
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:minHeight="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_neighbour_detail"
+        app:layout_constraintVertical_bias="0.13999999"
+        tools:layout_editor_absoluteX="8dp">
 
 
         <TextView
@@ -147,22 +177,12 @@
             android:layout_marginTop="58dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:padding="17dp"
+            android:padding="14dp"
             android:text="@string/bonjour_je_souhaiterais_faire_de_la_marche_nordique_pas_initi_e_je_recherche_une_ou_plusieurs_personnes_susceptibles_de_m_accompagner_j_aime_les_jeux_de_cartes_tels_la_belote_et_le_tarot"
             android:textSize="12sp" />
 
     </android.support.v7.widget.CardView>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButtonFav"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="340dp"
-        android:layout_marginTop="280dp"
-        android:backgroundTint="#FFFFFF"
-        android:clickable="true"
-        android:tint="#FFEB3B"
-        app:backgroundTint="#FFFFFF"
-        app:srcCompat="@drawable/ic_star_border_black_24dp" />
 
-</RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
