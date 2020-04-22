@@ -13,7 +13,7 @@ public class Neighbour implements Parcelable {
     /**
      * Identifier
      */
-    private Integer id;
+    private long id;
 
     /**
      * Full name
@@ -24,6 +24,20 @@ public class Neighbour implements Parcelable {
      * Avatar
      */
     private String avatarUrl;
+    /**
+     * address
+     */
+    private String address;
+
+    /**
+     * phone number
+     */
+    private Integer phone;
+
+    /**
+     * aboutMe
+     */
+    private String aboutMe;
 
     /**
      * Constructor
@@ -32,16 +46,37 @@ public class Neighbour implements Parcelable {
      * @param name
      * @param avatarUrl
      */
-    public Neighbour(Integer id, String name, String avatarUrl) {
+    public Neighbour(long id, String name, String avatarUrl) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
+        this.address = "";
+        this.phone = 0;
+        this.aboutMe = "";
     }
 
+    /**
+     * Constructor
+     *
+     * @param id
+     * @param name
+     * @param avatarUrl
+     * @param address
+     * @param phone
+     * @param aboutMe
+     */
+    public Neighbour(long id, String name, String avatarUrl, String address, Integer phone, String aboutMe) {
+        this.id = id;
+        this.name = name;
+        this.avatarUrl = avatarUrl;
+        this.address = address;
+        this.phone = phone;
+        this.aboutMe = aboutMe;
+    }
 
     protected Neighbour(Parcel in) {
         if (in.readByte() == 0) {
-            id = null;
+            id = 0;
         } else {
             id = in.readInt();
         }
@@ -61,14 +96,11 @@ public class Neighbour implements Parcelable {
         }
     };
 
-    public Neighbour(long currentTimeMillis, String toString, String neighbourImage, String toString1, String toString2, String toString3) {
-    }
-
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -88,6 +120,29 @@ public class Neighbour implements Parcelable {
         this.avatarUrl = avatarUrl;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Integer getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Integer phone) {
+        this.phone = phone;
+    }
+
+    public String getAboutMe() {
+        return aboutMe;
+    }
+
+    public void setAboutMe(String aboutMe) {
+        this.aboutMe = aboutMe;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -109,11 +164,11 @@ public class Neighbour implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        if (id == null) {
+        if (id == 0) {
             dest.writeByte((byte) 0);
         } else {
             dest.writeByte((byte) 1);
-            dest.writeInt(id);
+            dest.writeLong(id);
         }
         dest.writeString(name);
         dest.writeString(avatarUrl);

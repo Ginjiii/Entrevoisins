@@ -13,8 +13,10 @@
         <activity
             android:name=".ui.neighbour_list.NeighbourDetailActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
+
+        <activity android:name=".ui.neighbour_list.FavoriteNeighbourFragment" />
+
 
         <activity
             android:name=".ui.neighbour_list.AddNeighbourActivity"

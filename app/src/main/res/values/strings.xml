@@ -100,4 +100,7 @@
     <string name="bonjour_je_souhaiterais_faire_de_la_marche_nordique_pas_initi_e_je_recherche_une_ou_plusieurs_personnes_susceptibles_de_m_accompagner_j_aime_les_jeux_de_cartes_tels_la_belote_et_le_tarot">Bonjour !Je souhaiterais faire de la marche nordique. pas initiée,je recherche une ou plusieurs personnes susceptibles de m accompagner !J\'aime les jeux de cartes tels la belote et le tarot...</string>
     <string name="profil">profil</string>
     <string name="buttonback">ButtonBack</string>
+    <string name="mail">Mail</string>
+    <string name="phone">Phone</string>
+    <string name="location">Location</string>
 </resources>

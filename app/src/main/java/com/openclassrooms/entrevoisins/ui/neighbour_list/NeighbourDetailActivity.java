@@ -90,7 +90,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
                     mApiService.addFavorite(neighbour);
 
                     mImageButtonFav.setImageResource(R.drawable.ic_star_white_24dp);
-                    Toast.makeText(this, "add to favorites", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "add to favorite", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(this, " already favorite ", Toast.LENGTH_SHORT).show();
                 }

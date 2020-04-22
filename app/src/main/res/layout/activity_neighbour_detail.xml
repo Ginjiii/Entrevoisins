@@ -23,7 +23,8 @@
         app:backgroundTint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/activity_neighbour_detail"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_star_border_black_24dp" />
+        app:srcCompat="@drawable/ic_star_border_black_24dp"
+        android:focusable="true" />
 
     <android.support.v7.widget.CardView
         android:id="@+id/image_card"
@@ -63,7 +64,8 @@
             android:layout_marginBottom="24dp"
             android:textColor="@color/cardview_light_background"
             app:layout_constraintBottom_toBottomOf="@+id/image_avatar"
-            android:textSize="40sp"/>
+            android:textSize="40sp"
+        tools:ignore="PrivateResource" />
 </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
@@ -93,11 +95,11 @@
             android:layout_height="16dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="46dp"
-            android:contentDescription="Location"
+            android:contentDescription="@string/location"
             app:srcCompat="@drawable/ic_location_on_black_24dp" />
 
         <TextView
-            android:id="@+id/activity_adresse_text"
+            android:id="@+id/activity_address_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
@@ -111,7 +113,7 @@
             android:layout_height="16dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="84dp"
-            android:contentDescription="Phone"
+            android:contentDescription="@string/phone"
             app:srcCompat="@drawable/ic_phone_black_24dp" />
 
         <TextView
@@ -129,7 +131,7 @@
             android:layout_height="16dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="120dp"
-            android:contentDescription="Mail"
+            android:contentDescription="@string/mail"
             app:srcCompat="@drawable/ic_language_black_24dp" />
 
         <TextView
@@ -159,7 +161,7 @@
 
 
         <TextView
-            android:id="@+id/activity_desc_text"
+            android:id="@+id/activity_aboutMe1_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -170,7 +172,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/activity_descri_text"
+            android:id="@+id/activity_aboutMe_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
