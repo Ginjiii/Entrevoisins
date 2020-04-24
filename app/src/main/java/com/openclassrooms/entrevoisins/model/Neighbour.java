@@ -3,12 +3,13 @@ package com.openclassrooms.entrevoisins.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
  * Model object representing a Neighbour
  */
-public class Neighbour implements Parcelable {
+public class Neighbour extends ArrayList<Parcelable> implements Parcelable {
 
     /**
      * Identifier

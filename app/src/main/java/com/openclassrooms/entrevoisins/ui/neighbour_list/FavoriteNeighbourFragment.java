@@ -3,6 +3,7 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
@@ -103,7 +105,7 @@ public class FavoriteNeighbourFragment extends Fragment implements MyNeighbourRe
     public void onItemClick(int position) {
         Context context = getActivity();
         Intent intent = new Intent(context, NeighbourDetailActivity.class);
-        intent.putExtra("Neighbour", mFavoriteNeighbour.get(position));
+        intent.putParcelableArrayListExtra("Neighbour", mFavoriteNeighbour.get(position));
         startActivity(intent);
     }
 
