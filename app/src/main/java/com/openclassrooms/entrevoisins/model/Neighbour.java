@@ -33,32 +33,16 @@ public class Neighbour extends ArrayList<Parcelable> implements Parcelable {
     /**
      * phone number
      */
-    private Integer phone;
+    private String phone;
 
     /**
      * aboutMe
      */
     private String aboutMe;
 
-    /**
-     * Constructor
-     *
-     * @param id
-     * @param name
-     * @param avatarUrl
-     */
-    public Neighbour(long id, String name, String avatarUrl) {
-        this.id = id;
-        this.name = name;
-        this.avatarUrl = avatarUrl;
-        this.address = "";
-        this.phone = 0;
-        this.aboutMe = "";
-    }
 
     /**
      * Constructor
-     *
      * @param id
      * @param name
      * @param avatarUrl
@@ -66,7 +50,7 @@ public class Neighbour extends ArrayList<Parcelable> implements Parcelable {
      * @param phone
      * @param aboutMe
      */
-    public Neighbour(long id, String name, String avatarUrl, String address, Integer phone, String aboutMe) {
+    public Neighbour(long id, String name, String avatarUrl, String address, String phone, String aboutMe) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
@@ -129,11 +113,11 @@ public class Neighbour extends ArrayList<Parcelable> implements Parcelable {
         this.address = address;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

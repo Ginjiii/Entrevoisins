@@ -60,7 +60,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
      */
     private void displayDetail() {
         if (getIntent().hasExtra("Neighbour")) {
-            Neighbour neighbour = getIntent().getParcelableExtra("Neighbour");
+            Neighbour neighbour = getIntent().getExtras().getParcelable("Neighbour");
 
             Glide.with(this)
                     .load(neighbour.getAvatarUrl())

@@ -96,8 +96,10 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
     @Override
     public void onItemClick(int position) {
         Context context = getActivity();
+        Bundle info = new Bundle();
+        info.putParcelable("Neighbour",mNeighbours.get(position));
         Intent intent = new Intent (context, NeighbourDetailActivity.class);
-        intent.putParcelableArrayListExtra("Neighbour",mNeighbours.get(position));
+        intent.putExtras(info);
         startActivity(intent);
     }
 }
