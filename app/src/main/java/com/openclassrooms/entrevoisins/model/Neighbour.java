@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * Model object representing a Neighbour
  */
-public class Neighbour extends ArrayList<Parcelable> implements Parcelable {
+public class Neighbour implements Parcelable {
 
     /**
      * Identifier
@@ -59,28 +59,6 @@ public class Neighbour extends ArrayList<Parcelable> implements Parcelable {
         this.aboutMe = aboutMe;
     }
 
-    protected Neighbour(Parcel in) {
-        if (in.readByte() == 0) {
-            id = 0;
-        } else {
-            id = in.readInt();
-        }
-        name = in.readString();
-        avatarUrl = in.readString();
-    }
-
-    public static final Creator<Neighbour> CREATOR = new Creator<Neighbour>() {
-        @Override
-        public Neighbour createFromParcel(Parcel in) {
-            return new Neighbour(in);
-        }
-
-        @Override
-        public Neighbour[] newArray(int size) {
-            return new Neighbour[size];
-        }
-    };
-
     public long getId() {
         return id;
     }
@@ -101,33 +79,60 @@ public class Neighbour extends ArrayList<Parcelable> implements Parcelable {
         return avatarUrl;
     }
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
     public String getAddress() {
         return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
     public String getAboutMe() {
         return aboutMe;
     }
 
-    public void setAboutMe(String aboutMe) {
-        this.aboutMe = aboutMe;
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (id == 0) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeLong(id);
+        }
+        dest.writeString(name);
+        dest.writeString(avatarUrl);
+        dest.writeString(address);
+        dest.writeString(phone);
+        dest.writeString(aboutMe);
+
     }
+
+    protected Neighbour(Parcel in) {
+        if (in.readByte() == 0) {
+            id = 0;
+        } else {
+            id = in.readLong();
+        }
+        name = in.readString();
+        avatarUrl = in.readString();
+        address = in.readString();
+        phone = in.readString();
+        aboutMe = in.readString();
+    }
+
+    public static final Creator<Neighbour> CREATOR = new Creator<Neighbour>() {
+        @Override
+        public Neighbour createFromParcel(Parcel in) {
+            return new Neighbour(in);
+        }
+
+        @Override
+        public Neighbour[] newArray(int size) {
+            return new Neighbour[0];
+        }
+    };
 
     @Override
     public boolean equals(Object o) {
@@ -146,16 +151,5 @@ public class Neighbour extends ArrayList<Parcelable> implements Parcelable {
     public int describeContents() {
         return 0;
     }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        if (id == 0) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeLong(id);
-        }
-        dest.writeString(name);
-        dest.writeString(avatarUrl);
-    }
 }
+

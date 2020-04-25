@@ -105,7 +105,7 @@ public class FavoriteNeighbourFragment extends Fragment implements MyNeighbourRe
     public void onItemClick(int position) {
         Context context = getActivity();
         Intent intent = new Intent(context, NeighbourDetailActivity.class);
-        intent.putParcelableArrayListExtra("Neighbour", mFavoriteNeighbour.get(position));
+        intent.putExtra("Neighbour", mFavoriteNeighbour.get(position));
         startActivity(intent);
     }
 
