@@ -70,6 +70,12 @@ public class FavoriteNeighbourFragment extends Fragment implements MyNeighbourRe
     }
 
     @Override
+    public  void onResume() {
+        super.onResume();
+        initList();
+    }
+
+    @Override
     public void onStart() {
         super.onStart();
         EventBus.getDefault().register( this);
@@ -83,11 +89,6 @@ public class FavoriteNeighbourFragment extends Fragment implements MyNeighbourRe
 
     }
 
-    @Override
-    public  void onResume() {
-        super.onResume();
-        initList();
-    }
 
     @Subscribe
     public  void onDeleteFavoriteNeighbour(DeleteFavoriteNeighbourEvent event) {
