@@ -40,7 +40,8 @@ public class NeighbourServiceTest {
         Neighbour neighbourToDelete = service.getNeighbour().get(0);
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbour().contains(neighbourToDelete));
-        Neighbour neighbour = new Neighbour(1, "Caroline", "http://i.pravatar.cc/150?u=a042581f4e29026704d");
+        Neighbour neighbour = new Neighbour(1, "Caroline", "https://i.pravatar.cc/350?u=a042581f4e29026704d", "lyon ; 5km",
+                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
         service.addFavorite(neighbour);
         Neighbour neighbourFavToDelete = service.getFavorite().get(0);
         service.deleteFavorite(neighbourFavToDelete);
@@ -60,7 +61,8 @@ public class NeighbourServiceTest {
 
     @Test
     public void addNeighbourFavorite (){
-        Neighbour neighbour = new Neighbour(1, "Caroline", "http://i.pravatar.cc/150?u=a042581f4e29026704d");
+        Neighbour neighbour = new Neighbour(1, "Caroline", "https://i.pravatar.cc/350?u=a042581f4e29026704d", "lyon ; 5km",
+                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
         service.addFavorite(neighbour);
         assertEquals(1, service.getFavorite().size());
 
@@ -70,7 +72,8 @@ public class NeighbourServiceTest {
 
     @Test
     public void deleteNeighbourFavorite (){
-        Neighbour neighbour = new Neighbour(1, "Caroline", "http://i.pravatar.cc/150?u=a042581f4e29026704d");
+        Neighbour neighbour = new Neighbour(1, "Caroline", "https://i.pravatar.cc/350?u=a042581f4e29026704d", "lyon ; 5km",
+                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
         service.addFavorite(neighbour);
         Neighbour neighbourFavToDelete = service.getFavorite().get(0);
         service.deleteFavorite(neighbourFavToDelete);

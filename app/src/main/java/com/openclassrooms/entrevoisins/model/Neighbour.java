@@ -95,12 +95,8 @@ public class Neighbour implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        if (id == 0) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeLong(id);
-        }
+
+        dest.writeLong(id);
         dest.writeString(name);
         dest.writeString(avatarUrl);
         dest.writeString(address);
@@ -110,11 +106,8 @@ public class Neighbour implements Parcelable {
     }
 
     protected Neighbour(Parcel in) {
-        if (in.readByte() == 0) {
-            id = 0;
-        } else {
-            id = in.readLong();
-        }
+
+        id = in.readLong();
         name = in.readString();
         avatarUrl = in.readString();
         address = in.readString();

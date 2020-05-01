@@ -40,6 +40,12 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     @BindView(R.id.activity_mail_text)
     TextView mTextViewMailText;
 
+    @BindView(R.id.activity_address_text)
+    TextView mTextViewAddress;
+
+    @BindView(R.id.activity_aboutMe_text)
+    TextView mTextViewAbouteMe;
+
     private NeighbourApiService mApiService;
 
     @Override
@@ -68,6 +74,9 @@ public class NeighbourDetailActivity extends AppCompatActivity {
             mTextViewNameText.setText(neighbour.getName());
             mTextViewNameProfil.setText(neighbour.getName());
             mTextViewMailText.setText("www.facebook.fr/" + neighbour.getName());
+            mTextViewPhoneText.setText(neighbour.getPhone());
+            mTextViewAddress.setText(neighbour.getAddress());
+            mTextViewAbouteMe.setText(neighbour.getAboutMe());
         }
     }
 
